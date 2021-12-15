@@ -18,7 +18,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         	.httpBasic()
         	.and()
         	.authorizeRequests()
-            .antMatchers("/search/**").permitAll()
+            .antMatchers("/search/**").permitAll() 
             .antMatchers("/trains/**").hasRole("ADMIN")
             .anyRequest()
             .authenticated()

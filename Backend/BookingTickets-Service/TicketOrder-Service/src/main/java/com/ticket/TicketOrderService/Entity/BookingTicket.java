@@ -45,6 +45,13 @@ public class BookingTicket {
 		this.endStation = endStation;
 		this.trains=trains;
 	}
+	public BookingTicket(String id, String seats, String trainId, String startStation, String endStation) {
+		this.id = id;
+		this.seats = seats;
+		this.trainId=trainId;
+		this.startStation = startStation;
+		this.endStation = endStation;
+	}
 
 
 

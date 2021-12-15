@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-//@CrossOrigin("http://localhost:3000")
 @RequestMapping("/booking")
 public class TicketOrderController {
 
@@ -61,7 +60,4 @@ public class TicketOrderController {
 	  ticketrepository.deleteById(id);
 		return "Order deleted with id : "+id;
 		}
-	
-	
-
 }

@@ -25,21 +25,19 @@ class ContactApplicationTests {
 	private ContactService contactService;
 	
 	@MockBean
-	private ContactRepository conatctRepository;
+	private ContactRepository contactRepository;
 
 	@Test
 	public void getContactTest() {
-		when(conatctRepository.findAll()).thenReturn(Stream
+		when(contactRepository.findAll()).thenReturn(Stream
 				.of(new Contact("1","Siddharth","8765432190"), new Contact("2","Bhartesh","9834512457")).collect(Collectors.toList()));
 		assertEquals(2,contactService.getContact().size());
-		System.out.println("Get Contact Test Case Passed");
 	}
 		@Test
 		public void saveContactTest() {
 			Contact contact = new Contact("3", "Glen", "1234567232");
-			when(conatctRepository.save(contact)).thenReturn(contact);
+			when(contactRepository.save(contact)).thenReturn(contact);
 			assertEquals(contact, contactService.addContact(contact));
-			System.out.println("Save Contact Test Case Passed");
 		}
 
 }
