@@ -8,12 +8,11 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 
 
 @SpringBootApplication
-@OpenAPIDefinition
 @EnableEurekaClient
+@OpenAPIDefinition
 public class AdminContactServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AdminContactServiceApplication.class, args);
 	}
-
 }

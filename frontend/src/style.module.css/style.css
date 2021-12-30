@@ -1,0 +1,159 @@
+*
+{
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;
+    list-style: none;
+}
+
+body
+{
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+nav
+{
+    height: 80px;
+    width: 100%;
+    background:	#D4D4D4;
+}
+
+label.logo
+{
+    font-size: 35px;
+    font-weight: bold;
+    color: #000066;
+    padding: 0 100px;
+    line-height: 80px;
+}
+
+nav ul
+{
+    float: right;
+    margin-right: 40px;
+}
+
+nav li
+{
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
+
+nav a
+{
+    color:#000066;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    border-radius: 3px;
+}
+
+nav #icon
+{
+    color: rgb(19,2,2);
+    font-size: 30px;
+    line-height:80px;
+    float:right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+a.active,a:hover
+{
+    border: 1px solid #000066;
+    transition: .5s;
+}
+
+nav #icon
+{
+    color: black;
+    font-size: 30px;
+    line-height: 80px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+section
+{
+    width: 100%;
+    height: 100vh;
+    background: url("../resources/Train.jpeg");
+    background-size: cover;
+    background-position: center;
+    font-size: 250px;
+}
+
+.card_section
+{
+    margin-top: 10em;
+}
+
+.card_container
+{
+    padding-left: 15px;
+    padding-right: 25px;
+}
+
+.card_container .card_details
+{
+    padding: 60px 25px;
+    margin-bottom: 35px;
+    box-shadow: 0 32px 57px 0px rgba(210,210,210,0.35);
+    background-color: #E8E8E8; 
+    /* bg of card */
+    position: relative;
+}
+
+.card_container .card_details h5
+{
+    color: #000066;
+    font-size: 20px;
+    line-height: 30px;
+    transition: all 0.3sease-in-out;
+}
+
+.card_container .card_details p
+{
+    color: black;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.mt
+{
+    margin-top: 50px;
+}
+
+.card_container .card_details::before
+{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: dimgrey;
+    z-index: -1;
+    top:5px;
+    left:5px;
+    transform: rotate(1 deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.card_container .card_details:hover::before
+{
+    top:25px;
+    left:25px;
+    transform: rotate(5deg);
+}
+
+.card_container .card_details:hover::h5
+{
+    color: dimgrey;
+}
+
+.about
+{
+    margin-top: 50px;
+    font-size: 50%;
+}

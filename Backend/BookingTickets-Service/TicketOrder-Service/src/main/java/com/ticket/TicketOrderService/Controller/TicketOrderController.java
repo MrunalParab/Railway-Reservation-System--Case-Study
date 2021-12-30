@@ -7,6 +7,9 @@ import com.ticket.TicketOrderService.Entity.BookingTicket;
 import com.ticket.TicketOrderService.Entity.Train;
 import com.ticket.TicketOrderService.Repository.TicketOrderRepository;
 import com.ticket.TicketOrderService.Service.BookingService;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,16 +31,22 @@ public class TicketOrderController {
 	private BookingService bookingService;
 	@Autowired
 	private RestTemplate restTemplate;
+	private final static String BOOKING_SERVICE="booking-service";
 
 
 	@PostMapping("/addBooking")
+	@CircuitBreaker(name = "BOOKING_SERVICE", fallbackMethod = "addBookingFallBack")
+	
 	public String saveBook(@RequestBody BookingTicket ticket) {
 	ticketrepository.save(ticket);
 	return "Booked ticket with id :  " + ticket.getId()+"And Train ID is "+ticket.getTrainId();
     }
-
+	public String addBookingFallBack(Exception e) {
+		return "Booking service is down at this time please try later";
+	}
 
 	@GetMapping("/booked/{trainId}")
+	@CircuitBreaker(name = "BOOKING_SERVICE", fallbackMethod = "getBookingFallBack")
 	public BookingTicket getBooking(@PathVariable("trainId") String trainId){
 		BookingTicket bookingTicket=this.bookingService.getBooking(trainId);
 		//System.out.println(bookingTicket.getTrainId());
@@ -46,7 +55,9 @@ public class TicketOrderController {
 		bookingTicket.setTrains(booking);
 		return bookingTicket;
 	}
-
+	public String getBookingFallBack(Exception e) {
+		return "Train service is down at this time please try later";
+	}
 
 	@PutMapping("/update/{id}")
 	public BookingTicket updateOrder(@PathVariable("id") String id, @RequestBody BookingTicket order ) {

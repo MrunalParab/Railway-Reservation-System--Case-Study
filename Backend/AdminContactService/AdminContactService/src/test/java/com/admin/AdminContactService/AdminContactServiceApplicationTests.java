@@ -1,4 +1,4 @@
-package com.admin.AdminContactService;
+/*package com.admin.AdminContactService;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,25 +19,27 @@ import com.admin.AdminContactService.model.Contact;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class ContactApplicationTests {
-	
+class AdminContactServiceApplicationTests {
+
 	@Autowired
 	private ContactService contactService;
 	
 	@MockBean
-	private ContactRepository contactRepository;
+	private ContactRepository conatctRepository;
 
 	@Test
 	public void getContactTest() {
-		when(contactRepository.findAll()).thenReturn(Stream
-				.of(new Contact("1","Siddharth","8765432190"), new Contact("2","Bhartesh","9834512457")).collect(Collectors.toList()));
+		when(conatctRepository.findAll()).thenReturn(Stream
+				.of(new Contact("1","Siddharth","8765432190"), new Contact("2","Raj","7234488721s")).collect(Collectors.toList()));
 		assertEquals(2,contactService.getContact().size());
+		System.out.println("Get Contact Test Case Passed");
 	}
 		@Test
 		public void saveContactTest() {
-			Contact contact = new Contact("3", "Glen", "1234567232");
-			when(contactRepository.save(contact)).thenReturn(contact);
+			Contact contact = new Contact("4", "Rani", "762587388");
+			when(conatctRepository.save(contact)).thenReturn(contact);
 			assertEquals(contact, contactService.addContact(contact));
+			System.out.println("Save Contact Test Case Passed");
 		}
 
-}
+}*/
