@@ -11,7 +11,7 @@ export class aboutus extends Component {
               style={{color:"#000066"}}>
               <h5><strong>Please help Indian railways and government of India in moving towards a digitized and cashless economy. Eradicate black money.</strong></h5>
             </marquee>
-            </div>
+            </div><br/>
             <div className='about'>
                 <center>
                 <h5 style={{color:"#000066"}}><strong>INDIAN RAILWAYS</strong></h5><br/>

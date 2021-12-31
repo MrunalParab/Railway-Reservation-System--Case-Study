@@ -47,7 +47,7 @@ export default class SignUp extends Component {
                 emailError:"Invalid Email"
             })
         }
-        else if(this.state.mobileNumber.length<10){
+        else if(this.state.mobileNumber.length>10){
             this.setState({
                 mobileNumberError:"Invalid Mobile Number"
             })
@@ -100,12 +100,17 @@ export default class SignUp extends Component {
     
    render(){
         return (
-            <div>
-            <center>  
-            <div className="outer">
-               <div className="inner">
+    <div class="h-20 h-custom">
+    <div class="container py-5 h-20">
+    <div class="row d-flex justify-content-center align-items-center h-20">
+    <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
+        <center>  
+            <div className="card-body p-4 p-md-5">
             <form>
-                <h3>Register</h3>
+                <div>
+                    <h3 style={{color:"#000066"}}><strong>Register</strong></h3>
+                </div>
                 <br/>
                 <div className="form-group" style={{width:300}}>
                     <input type="text" className="form-control" placeholder="Enter Name" 
@@ -129,18 +134,34 @@ export default class SignUp extends Component {
                     <p style={{color:"red" }}>{this.state.mobileNumberError}</p>
                 </div>
 
-                <div className="form-group" style={{width:300}}>
+                 {/* <div className="form-group" style={{width:300}}>
                     <input type="text" className="form-control" placeholder="Enter Gender" 
                     onChange={(e) => this.handleChange({ gender: e.target.value })} />
                     <p style={{color:"red" }}>{this.state.genderError}</p>
+                </div>  */}
+
+                <div className="form-group">
+                <select name="gender" id="gender" style={{color:"#	575757"}}>
+                <option value="none" selected>Select Gender</option>
+                    <option value="Male" onChange={(e) => this.handleChange({ gender: e.target.value })}>
+                        Male</option>
+                    <option value="Female" onChange={(e) => this.handleChange({ gender: e.target.value })}>
+                        Female</option>
+                    <option value="Other" onChange={(e) => this.handleChange({ gender: e.target.value })}>
+                        Other</option>
+                </select>
                 </div>
+                <br/>
                 <button type="submit" className="btn btn-dark btn-lg btn-block" 
-                onClick={(e)=>this.register(e)} style={{backgroundColor:"#000066"}} >Register</button>
-              <p>Have an account?  <Link to="/Login">Login Here</Link></p>
+                onClick={(e)=>this.register(e)} style={{backgroundColor:"#000066"}} >Register</button><br/>
+              <p>Already have an account?  <Link to="/Login">Login Here</Link></p>
             </form>
             </div>
-            </div>
             </center>
+        </div>
+        </div>
+        </div>
+        </div>
         </div>
         );
    }

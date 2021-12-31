@@ -77,20 +77,18 @@ const Login = () => {
       }}
     >
       {() => (
-          <div class="h-50 h-custom">
-          <div class="container py-5 h-50">
-            <div class="row d-flex justify-content-center align-items-center h-50">
+          <div class="h-20 h-custom">
+          <div class="container py-5 h-20">
+            <div class="row d-flex justify-content-center align-items-center h-20">
               <div class="col-lg-8 col-xl-6">
-                <div class="card rounded-3">
+                <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
                 <center>
                   <div class="card-body p-4 p-md-5">
                     <h3 class="Login" style={{color:"#000066"}}><strong>Login</strong></h3>
                   </div>
                   <div>
                     <Form class="px-md-2">
-        
                     <div class="form-outline mb-4"  style={{width:'300px'}}>
-                        <br/><br/><br/>
                         <Field type="email" name="email"id="form3Example1q" class="form-control" placeholder=" Email Id"/><br/>
                         <Field type="password" name="password" id="form3Example1q" class="form-control" placeholder=" Password"/><br/>
                         </div>

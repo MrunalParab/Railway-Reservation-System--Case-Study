@@ -40,7 +40,7 @@ class TrainList extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <table className="table table-striped-dark" style={{color:"#000066"}} >
           <thead>
             <tr>
