@@ -154,7 +154,7 @@ export default class SignUp extends Component {
                 <br/>
                 <button type="submit" className="btn btn-dark btn-lg btn-block" 
                 onClick={(e)=>this.register(e)} style={{backgroundColor:"#000066"}} >Register</button><br/>
-              <p>Already have an account?  <Link to="/Login">Login Here</Link></p>
+              <p>Already have an account?  <Link to="/UserLogin">Login Here</Link></p>
             </form>
             </div>
             </center>

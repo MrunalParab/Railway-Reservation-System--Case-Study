@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import style from './style.module.css/style.css'
@@ -16,6 +16,10 @@ import deleteTrain from "./components/deleteTrain";
 import Login from "./components/Login";
 import adminSignUp from "./components/adminSignUp";
 import aboutus from './components/aboutus';
+import Logout from './components/Logout';
+import UserLogin from './components/UserLogin';
+
+import axios from 'axios';
 
 
 //import PaytmPG from "./components/PaytmPG";
@@ -24,23 +28,83 @@ import aboutus from './components/aboutus';
 //Importing Images
 import navImage from './resources/Header.jpg'
 import trainicon from './resources/trainicon.png'
+import namaste from './resources/namaste.png'
+import masterlogo from './resources/masterlogo.png'
 
 
 
-function App() {
-  return (
-     <Router>
-      
-      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-      <nav>
-        <label className='logo'>Railway Reservation System</label>
+
+
+class App extends Component {
+  
+  state={};
+  componentDidMount(){
+   const config={
+     headers: {
+      Authorization: 'Bearer '+ sessionStorage.getItem('token'),
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+     }
+   };
+   axios.get('dashboard',config).then(
+     res=>{
+       this.setState({
+         user: res.data
+       })
+       console.log(res)
+     },
+     err=>
+     {
+       console.log(err)
+     }
+   )
+  }
+
+render(){
+
+  let button;
+  //After login
+    if(this.state.user){
+      button=(
+       <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/aboutus'>About Us</a></li>
+          <li><a href='/trainlist'>Train Schedule</a></li>
+          <li><a href='/booking'>Booking</a></li>
+          <li><a href='/UserLogin' onClick={Logout} >Logout</a></li>
+        </ul> 
+  )
+    }
+    //Before Login
+    else{
+      button= (
         <ul>
           <li><a href='/'>Home</a></li>
           <li><a href='/aboutus'>About Us</a></li>
           <li><a href='/trainlist'>Train Schedule</a></li>
-          <li><a href='/Login'>Login</a></li>
+          <li><a href='/UserLogin'>Login</a></li>
           <li><a href='/adminSignIn'>Admin</a></li>
-        </ul><link rel='stylesheet' href='style.css'></link>
+        </ul> 
+      )
+    }
+
+  return (
+     <Router>
+
+
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <nav>
+        <label className='logo'>Railway Reservation System</label>
+        {/* <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/aboutus'>About Us</a></li>
+          <li><a href='/trainlist'>Train Schedule</a></li>
+          <li><a href='/UserLogin'>Login</a></li>
+          <li><a href='/adminSignIn'>Admin</a></li>
+        </ul> */}
+        <link rel='stylesheet' href='style.css'></link>
+
+        {button}
       </nav>
 
       
@@ -55,9 +119,11 @@ function App() {
       <Route path="/adminSignIn" exact component={adminSignIn} />
       <Route path="/addTrain" exact component={createTrain} />
       <Route path="/delTrain" exact component={deleteTrain} />
-      <Route path="/Login" exact component={Login} />
+      {/* <Route path="/Login" exact component={Login} />  */}
       <Route path="/adminSignUp" exact component={SignUp} />
       <Route path="/aboutus" exact component={aboutus} />
+      {/* <Route path="/Logout" exact component={Logout} /> */}
+      <Route path="/UserLogin" exact component={UserLogin} />
     </Switch>
 
     <div
@@ -74,6 +140,7 @@ function App() {
       </div>
     </Router>
   );
+}
 }
 
 export default App;

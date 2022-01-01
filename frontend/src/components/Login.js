@@ -1,10 +1,9 @@
-import React, { Component, useContext, useState } from "react";
+import React, { Component, useState } from "react";
 import { Link} from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { useHistory, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import _get from "lodash.get";
-
 
 
 
@@ -14,6 +13,9 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => { 
+
+  
+
     const [email, setEmail] = useState('');
     const [password,setPassword] = useState('')
     const history = useHistory();
@@ -21,10 +23,10 @@ const Login = () => {
     const fromUrl = _get(location, "state.from.pathname");
     const signInSuccess = (userData) => {
         if (fromUrl) {
-          alert("Not Logged in")
+          alert("Invalid Credentials")
           history.push(fromUrl);
         } else {
-          alert("Logged in")
+          alert("Successfully Logged in")
           history.push("/");
         }
       };

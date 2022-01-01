@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Form } from "formik";
+import { Form ,Field} from "formik";
 
 export default class adminSignUp extends Component {
     constructor() {
@@ -77,46 +77,45 @@ export default class adminSignUp extends Component {
     
    render(){
         return (
-          <section class="h-100 h-custom" style={{backgroundColor: "rgb(234, 221, 202)"}}>
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-8 col-xl-6">
-        <div class="card rounded-3">
-        <center>
-          <div class="card-body p-4 p-md-5" style={{backgroundColor:"#C19A6B"}}>
-            <h3 class="Register" style={{color:"white"}}><strong>Admin Registration Form</strong></h3>
-          </div>
-          <div style={{backgroundColor:"wheat"}}>
-            <br/>
-            <form class="px-md-2">
-
-            <div class="form-outline mb-4"  style={{width:'400px'}}>
-                <input type="text" id="form3Example1q" class="form-control" placeholder="Enter Name"/><br/>
-                <input type="text" id="form3Example1q" class="form-control" placeholder="Enter Password"/><br/>
-            </div>
-            <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
-                    type="submit"
-                    style={{backgroundColor:"burlywood",color:'white',border:"none"}}>
-                      <strong>
-                      REGISTER
-                      </strong>
-                    </button>
-                    <div style={{color:"#696969"}}>
-                                <h5>Have an account already ? </h5>
-                                <Link to="/Login" className="fw-bold text-body">
-                                    <u style={{color:"#696969"}}>Login here</u>
+          <div class="h-20 h-custom">
+          <div class="container py-5 h-20">
+            <div class="row d-flex justify-content-center align-items-center h-20">
+              <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
+                <center>
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="Login" style={{color:"#000066"}}><strong>Admin Registration</strong></h3>
+                  </div>
+                  <div>
+                    <Form class="px-md-2">
+                    <div class="form-outline mb-4"  style={{width:'300px'}}>
+                        <Field type="email" placeholder="Enter Username" name="email"id="form3Example1q" class="form-control" placeholder=" Email Id"/><br/>
+                        <Field type="password"  placeholder="Enter Password"name="password" id="form3Example1q" class="form-control" placeholder=" Password"/><br/>
+                        </div>
+                    <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                            onClick={()=>{}}
+                            type="submit"
+                            style={{backgroundColor:"#000066",color:'white',border:"none"}}>
+                              <strong>
+                              Login
+                              </strong>
+                            </button>
+                            <div>
+                                <h5>Don't have already an account? </h5>
+                                <Link to="/adminSignIn" className="fw-bold text-body">
+                                    <h6 style={{color:"blue"}}>Register here</h6>
                                 </Link>
                             </div>
                             <br></br><br/>
-            </form>
-
+                    </Form>
+        
+                  </div>
+                  </center>
+                </div>
+              </div>
+            </div>
           </div>
-          </center>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
           
         );

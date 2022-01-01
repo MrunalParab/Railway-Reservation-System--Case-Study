@@ -75,39 +75,37 @@ const Login = () => {
             }}
           >
             {() => (
-                <section class="h-100 h-custom" style={{backgroundColor: "rgb(234, 221, 202)"}}>
-                <div class="container py-5 h-100">
-                  <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="h-20 h-custom">
+                <div class="container py-5 h-20">
+                  <div class="row d-flex justify-content-center align-items-center h-20">
                     <div class="col-lg-8 col-xl-6">
-                      <div class="card rounded-3">
+                      <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
                       <center>
-                        <div class="card-body p-4 p-md-5" style={{backgroundColor:"#C19A6B"}}>
-                          <h3 class="Register" style={{color:"white"}}><strong>Admin Login</strong></h3>
+                        <div class="card-body p-4 p-md-5">
+                          <h3 class="Login" style={{color:"#000066"}}><strong>Admin Login</strong></h3>
                         </div>
-                        <div style={{backgroundColor:"wheat"}}>
-                          <br/>
-                          <form class="px-md-2">
-              
-                          <div class="form-outline mb-4"  style={{width:'300px',color:"#696969"}}>
-                              <br/><br/><br/>
-                              <input type="text" id="form3Example1q" class="form-control" placeholder=" Email Id"/><br/>
-                              <input type="text" id="form3Example1q" class="form-control" placeholder=" Password"/><br/>
+                        <div>
+                          <Form class="px-md-2">
+                          <div class="form-outline mb-4"  style={{width:'300px'}}>
+                              <Field type="email" name="email"id="form3Example1q" class="form-control" placeholder=" Email Id"/><br/>
+                              <Field type="password" name="password" id="form3Example1q" class="form-control" placeholder=" Password"/><br/>
                               </div>
                           <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                                  onClick={()=>{}}
                                   type="submit"
-                                  style={{backgroundColor:"burlywood",color:'white',border:"none"}}>
+                                  style={{backgroundColor:"#000066",color:'white',border:"none"}}>
                                     <strong>
                                     Login
                                     </strong>
                                   </button>
-                                  <div style={{color:"#696969"}}>
+                                  <div>
                                       <h5>Don't have already an account? </h5>
                                       <Link to="/adminSignUp" className="fw-bold text-body">
-                                          <u style={{color:"#696969"}}>Register here</u>
+                                          <h6 style={{color:"blue"}}>Register here</h6>
                                       </Link>
                                   </div>
                                   <br></br><br/>
-                          </form>
+                          </Form>
               
                         </div>
                         </center>
@@ -115,7 +113,7 @@ const Login = () => {
                     </div>
                   </div>
                 </div>
-              </section>
+              </div>
           )}
           </Formik>
         );
