@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import AdminNavigationBar from "../components/adminNavigationBar";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
+import _get from 'lodash.get'
 
-export default class CreateTrain extends Component {
+
+
+
+class AddTrain extends Component {
   state = {
     trainid: "",
     trainName: "",
@@ -15,7 +19,9 @@ export default class CreateTrain extends Component {
   handleTrainid = event => {
     const { value } = event.target;
     if (value != null) {
+      
       this.setState({ trainid: value.toUpperCase() });
+      
     }
   };
 
@@ -36,29 +42,61 @@ export default class CreateTrain extends Component {
     const { value } = event.target;
     this.setState({ endStation: value.toUpperCase() });
   };
-
+  
+  handleDel = event => {
+    sessionStorage.setItem('TRAINID',this.state.trainid);
+  };
 
 
   handleSubmit = event => {
     event.preventDefault();
 
-    const newTrain = {
-      trainid: this.state.trainid,
-      trainName: this.state.trainName,
-      startStation: this.state.startStation,
-      endStation: this.state.endStation,
-    
-    };
+    // const newTrain = {
+    //   trainid: this.state.trainid,
+    //   trainName: this.state.trainName,
+    //   startStation: this.state.startStation,
+    //   endStation: this.state.endStation,
+    //   price: this.state.price
+      
+    // };
 
-    axios
-      .post(
-        "http://localhost:9030/trains/addTrain",
-        newTrain
-      )
-      .then(response => response)
+    // axios
+    //   .post(
+    //     "http://localhost:9030/trains/addTrain",
+    //     newTrain
+    //   )
+      fetch("http://localhost:9030/trains/addTrain",{
+                "method":"POST",
+                "headers":{
+                    "content-type":"application/json",
+                    "accept":"application/json",
+                    "Access-Control-Allow-Origin":"*"
+                },
+                "body": JSON.stringify({
+                    trainId: this.state.trainid,
+                    trainName: this.state.trainName,
+                    startStation: this.state.startStation,
+                    endStation: this.state.endStation,
+                })
+            })
+            .then(response=> response.json())
+
+            .then(response=>{
+              if(response.error){
+                alert("Train not Added")
+                console.log(response)
+                this.history.push(`/addTrain`)
+              }
+              else{
+                alert("Train added Successfully")
+                this.history.push(`/addTrain`)
+              }
+              
+                
+            })
       .catch(error => error.message);
-
-    window.alert("Train created successfully");
+      
+    
     this.setState({
         trainid: "",
         trainName: "",
@@ -72,19 +110,16 @@ export default class CreateTrain extends Component {
     if (this.state.isTrainCreated) {
       return <Redirect to="/trainlist" />;
     }
-    console.log(this.props.adminId === "");
-    if (this.props.adminId === "") {
-      return <Redirect to="/adminSignIn" />;
-    }
-
+   
     return (
       <div>
-        <AdminNavigationBar />
+        <AdminNavigationBar/>
         <div className="d-flex justify-content-center">
           <div className="card bg-light mb-3">
-            <div className="card-header">
+            <div className="card-header" style={{width:500}}>
               <h3 className="d-flex justify-content-center">Create Train</h3>
             </div>
+            <br />
             <div className="card-body">
               <h5 className="card-title">
                 <form onSubmit={this.handleSubmit}>
@@ -100,6 +135,7 @@ export default class CreateTrain extends Component {
                         required
                       />
                     </div>
+                    <br />
                     <div className="col">
                       <label htmlFor="trainName">Train Name</label>
                       <input
@@ -124,7 +160,7 @@ export default class CreateTrain extends Component {
                         required
                       />
                     </div>
-
+                    <br />
                     <div className="col">
                       <label htmlFor="inputState">Destination</label>
                       <input
@@ -137,19 +173,18 @@ export default class CreateTrain extends Component {
                     </div>
                   </div>
                   <br />
-                
-              
                   <br />
                   <div>
                     <button
                       type="submit"
                       value="createTicket"
                       className="btn btn-dark btn-lg btn-block"
+                     
                     >
                       Create Train
                     </button>
-                    
-                    <p>Delete Train?<Link to="/delTrain"> Click Here</Link></p>
+                    <br/>
+                    <p>Delete Train?<Link to="/deleteTrain" onClick={this.handleDel}> Click Here</Link></p>
                   </div>
                 </form>
               </h5>
@@ -160,3 +195,4 @@ export default class CreateTrain extends Component {
     );
   }
 }
+export default AddTrain

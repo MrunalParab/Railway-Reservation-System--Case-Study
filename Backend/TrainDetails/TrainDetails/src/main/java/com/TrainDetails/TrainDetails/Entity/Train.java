@@ -10,6 +10,7 @@ public class Train {
     private String trainName;
     private String startStation;
     private String endStation;
+   
 
 
 
@@ -19,6 +20,7 @@ public class Train {
         this.trainName = trainName;
         this.startStation = startStation;
         this.endStation = endStation;
+        
     }
 
     public Train() {
@@ -56,4 +58,6 @@ public class Train {
     public void setEndStation(String endStation) {
         this.endStation = endStation;
     }
+
+    
 }

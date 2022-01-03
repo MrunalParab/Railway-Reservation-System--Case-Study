@@ -14,10 +14,10 @@ import adminSignIn from './components/adminSignIn';
 import createTrain from './components/createTrain';
 import deleteTrain from "./components/deleteTrain";
 import Login from "./components/Login";
-import adminSignUp from "./components/adminSignUp";
 import aboutus from './components/aboutus';
 import Logout from './components/Logout';
 import UserLogin from './components/UserLogin';
+import PaytmPG from "./components/PaytmPG";
 
 import axios from 'axios';
 
@@ -64,7 +64,7 @@ render(){
 
   let button;
   //After login
-    if(this.state.user){
+    if(this.props.user){
       button=(
        <ul>
           <li><a href='/'>Home</a></li>
@@ -117,13 +117,13 @@ render(){
       <Route path="/thankyou" exact component={ThankYou} />
       <Route path="/signUp" exact component={SignUp} />
       <Route path="/adminSignIn" exact component={adminSignIn} />
-      <Route path="/addTrain" exact component={createTrain} />
-      <Route path="/delTrain" exact component={deleteTrain} />
+      <Route path="/AddTrain" exact component={createTrain} />
+      <Route path="/deleteTrain" exact component={deleteTrain} />
       {/* <Route path="/Login" exact component={Login} />  */}
-      <Route path="/adminSignUp" exact component={SignUp} />
       <Route path="/aboutus" exact component={aboutus} />
       {/* <Route path="/Logout" exact component={Logout} /> */}
       <Route path="/UserLogin" exact component={UserLogin} />
+      <Route path="/submitPaymentDetail" exact component={PaytmPG} />
     </Switch>
 
     <div

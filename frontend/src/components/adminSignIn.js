@@ -28,7 +28,7 @@ const Login = () => {
       };
       
         const login = (userData) => {
-            fetch("http://localhost:9060/auth", {
+            fetch("http://localhost:9050/auth", {
               "method": "POST",
               "headers": {
                 "content-type": "application/json",
@@ -87,7 +87,7 @@ const Login = () => {
                         <div>
                           <Form class="px-md-2">
                           <div class="form-outline mb-4"  style={{width:'300px'}}>
-                              <Field type="email" name="email"id="form3Example1q" class="form-control" placeholder=" Email Id"/><br/>
+                              <Field type="username" name="username"id="form3Example1q" class="form-control" placeholder=" Username"/><br/>
                               <Field type="password" name="password" id="form3Example1q" class="form-control" placeholder=" Password"/><br/>
                               </div>
                           <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
@@ -98,13 +98,6 @@ const Login = () => {
                                     Login
                                     </strong>
                                   </button>
-                                  <div>
-                                      <h5>Don't have already an account? </h5>
-                                      <Link to="/adminSignUp" className="fw-bold text-body">
-                                          <h6 style={{color:"blue"}}>Register here</h6>
-                                      </Link>
-                                  </div>
-                                  <br></br><br/>
                           </Form>
               
                         </div>

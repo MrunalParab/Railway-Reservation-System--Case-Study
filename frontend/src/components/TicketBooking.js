@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import "../../src/style.module.css/ticketbooking.css";
+
 
 //export the variable to access from other components
 
@@ -123,21 +123,16 @@ class TicketBooking extends Component {
 
   render() {
     return (
-      <Router>
-        <div style={{backgroundColor: 'rgb(234, 221, 202)'}}>
-        <div className="container" style={{ marginTop: 0 }}>
-        <center>
-              <div className="card" style={{ width: 600 }}>
-                <h5
-                  className="card-header info-color white-text text-center py-4"
-                  style={{ backgroundColor: " #C19A6B" }}
-                >
-                  <strong style={{ color: "white" }}>
-                    {" "}
-                    Book Train Tickets Online{" "}
-                  </strong>
-                </h5>
-                <div className="card-body px-lg-5" style={{ backgroundColor:"#F5DEB3" }}>
+      <div class="h-20 h-custom">
+      <div class="container py-5 h-20">
+        <div class="row d-flex justify-content-center align-items-center h-20">
+          <div class="col-lg-8 col-xl-6">
+            <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
+            <center>
+              <div class="card-body p-4 p-md-5">
+                <h3 class="Login" style={{color:"#000066"}}><strong>Book Tickets</strong></h3>
+              </div>
+                <div className="card-body px-lg-5">
                   <form
                     className="text-center" 
                     style={{ color: "#696969" }}
@@ -145,7 +140,7 @@ class TicketBooking extends Component {
                     
                   >
                     <label><strong>Train No : &nbsp; </strong> </label>
-                    <input type="text"></input>
+                    <input type="text" placeholder="Enter Train No"></input>
                     <br></br><br></br>
 
                     <label><strong>Source : &nbsp; </strong> </label>
@@ -179,18 +174,19 @@ class TicketBooking extends Component {
 
             <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
                     type="submit"
-                    style={{backgroundColor:"burlywood",color:'white',border:"none"}}>
+                    style={{backgroundColor:"#000066",color:'white',border:"none"}}>
                       <strong>
                       NEXT
                       </strong>
                     </button>
                   </form>
+                  </div>
+                  </center>
                 </div>
               </div>
-              </center>
           </div>
         </div>
-      </Router>
+      </div>
     );
   }
 }

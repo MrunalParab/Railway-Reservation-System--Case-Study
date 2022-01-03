@@ -87,16 +87,15 @@ class PaymentMethod extends Component {
 
   render() {
     return (
-      <div style={{backgroundColor: 'rgb(234, 221, 202)'}}>
+      <div>
         <div className="container" style={{ marginTop: 0 }}>
           <center>
-            <div className="card" style={{ width: 600 ,backgroundColor:"#C19A6B",color:'white'}}>
-              <h3>Your Details</h3>
+            <div className="card"  style={{backgroundColor:"#f0f8ff"}}>
+              <h3 style={{backgroundColor:"#D4D4D4",color:"#000066"}}>Your Details</h3>
               <h5
                 className="card-header info-color white-text text-center py-4"
-                style={{backgroundColor:"wheat"}}
-              >
-                <strong style={{ color: "#696969" }}>
+          >
+                <strong >
                   {" "}
                   <h6>
                     {" "}
@@ -141,10 +140,10 @@ class PaymentMethod extends Component {
                   </h6>
                   </strong>
                   </h5>
-              <div style={{ backgroundColor:"#C19A6B", color:'white' }}>
+              <div style={{ backgroundColor:"#D4D4D4",color:"#000066"}}>
                 <h3>Select the Payment Method</h3>
               </div>
-              <div className="card-body px-lg-5" style={{backgroundColor:"wheat"}}>
+              <div className="card-body px-lg-5">
                 <form 
                   className="text-center"
                   style={{ color: "#696969" }}
@@ -181,7 +180,7 @@ class PaymentMethod extends Component {
                   <button
                     className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
                     type="submit"
-                    style={{backgroundColor:"burlywood",color:'white',border:"none"}}>
+                    style={{backgroundColor:"#000066",color:'white',border:"none"}}>
                     <strong>
                     NEXT
                     </strong>
