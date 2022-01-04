@@ -15,9 +15,10 @@ import createTrain from './components/createTrain';
 import deleteTrain from "./components/deleteTrain";
 import Login from "./components/Login";
 import aboutus from './components/aboutus';
-import Logout from './components/Logout';
+
 import UserLogin from './components/UserLogin';
 import PaytmPG from "./components/PaytmPG";
+import NavBar from "./components/NavBar";
 
 import axios from 'axios';
 
@@ -28,17 +29,17 @@ import axios from 'axios';
 //Importing Images
 import navImage from './resources/Header.jpg'
 import trainicon from './resources/trainicon.png'
-import namaste from './resources/namaste.png'
-import masterlogo from './resources/masterlogo.png'
-
-
+// import namaste from './resources/namaste.png'
+// import masterlogo from './resources/masterlogo.png'
 
 
 
 class App extends Component {
-  
+ 
+  //const isLoggedIn=sessionStorage.getItem('token')
   state={};
   componentDidMount(){
+   //axios.get('http://localhost:8682/auth')
    const config={
      headers: {
       Authorization: 'Bearer '+ sessionStorage.getItem('token'),
@@ -60,39 +61,40 @@ class App extends Component {
    )
   }
 
-render(){
+   render() {
 
-  let button;
-  //After login
-    if(this.props.user){
-      button=(
-       <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='/aboutus'>About Us</a></li>
-          <li><a href='/trainlist'>Train Schedule</a></li>
-          <li><a href='/booking'>Booking</a></li>
-          <li><a href='/UserLogin' onClick={Logout} >Logout</a></li>
-        </ul> 
-  )
-    }
-    //Before Login
-    else{
-      button= (
-        <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='/aboutus'>About Us</a></li>
-          <li><a href='/trainlist'>Train Schedule</a></li>
-          <li><a href='/UserLogin'>Login</a></li>
-          <li><a href='/adminSignIn'>Admin</a></li>
-        </ul> 
-      )
-    }
+  // let button;
+  // //After login
+  //   if(this.props.user){
+  //     button=(
+  //      <ul>
+  //         <li><a href='/'>Home</a></li>
+  //         <li><a href='/aboutus'>About Us</a></li>
+  //         <li><a href='/trainlist'>Train Schedule</a></li>
+  //         <li><a href='/booking'>Booking</a></li>
+  //         <li><a href='/UserLogin' onClick={Logout} >Logout</a></li>
+  //       </ul> 
+  // )
+  //   }
+  //   //Before Login
+  //   else{
+  //     button= (
+  //       <ul>
+  //         <li><a href='/'>Home</a></li>
+  //         <li><a href='/aboutus'>About Us</a></li>
+  //         <li><a href='/trainlist'>Train Schedule</a></li>
+  //         <li><a href='/UserLogin'>Login</a></li>
+  //         <li><a href='/adminSignIn'>Admin</a></li>
+  //         <li><a href='/booking'>Booking</a></li>
+  //       </ul> 
+  //     )
+  //   }
 
   return (
      <Router>
 
-
-      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+          <NavBar user={this.state.user}/>
+      {/* <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       <nav>
         <label className='logo'>Railway Reservation System</label>
         {/* <ul>
@@ -102,11 +104,10 @@ render(){
           <li><a href='/UserLogin'>Login</a></li>
           <li><a href='/adminSignIn'>Admin</a></li>
         </ul> */}
-        <link rel='stylesheet' href='style.css'></link>
+        {/* <link rel='stylesheet' href='style.css'></link>
 
         {button}
-      </nav>
-
+      </nav> */} 
       
     <Switch>
       <Route path="/" exact component={HomeSlider} /> 

@@ -27,33 +27,33 @@ class SBIBankPG extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "rgb(234, 221, 202)" }}>
+      <div >
         <div className="container" style={{ marginTop: 0 }}>
           <center>
             <div className="card" style={{ width: 600 }}>
               <h5
                 className="card-header info-color white-text text-center py-4"
-                style={{ backgroundColor: " #C19A6B " }}
+                style={{ backgroundColor: " aliceblue " }}
               >
-                <strong style={{ color: "white" }}>
+                <strong style={{ color: "#000066" }}>
                   {" "}
                   <h2> Your Bill : Rs.{this.state.total} </h2>
                 </strong>
               </h5>
-              <div className="logo" style={{backgroundColor:"wheat"}}>
+              <div className="logo">
                 <img src={sbilogo} width="300" height="200"  alt="" />
               </div>
 
-              <div style={{ backgroundColor: " #C19A6B " }}><h2> State Bank of India Payment Gateway </h2></div>
+              <div style={{ backgroundColor: " aliceblue" }}><h2> State Bank of India Payment Gateway </h2></div>
               
-              <div className="card-body px-lg-5" style={{backgroundColor:"wheat"}}>
+              <div className="card-body px-lg-5">
                 <form
                   className="text-center"
                   style={{ color: "#757575" }}
                   onSubmit={this.onSubmit}
                 >
                 <strong>
-                  <label> Name on Card : </label>
+               
                   <input
                     type="text"
                     placeholder="Name on Card"

@@ -1,8 +1,13 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import { Router } from 'react-router-dom'
 import "../../src/style.module.css/style.css"
 
 export class HomeSlider extends Component {
+
+  
+ 
+
   render() {
     return (
       

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.*;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.JwtUtils;
+import java.util.*;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
@@ -105,6 +106,10 @@ public class AuthController {
 		return "Welcome to dashboard...!";
 	}
 	
-	
+	@GetMapping("/user")
+	public List<UserModel> getAllContact()
+	{
+		return userrepo.findAll();
+	}
 	
 }

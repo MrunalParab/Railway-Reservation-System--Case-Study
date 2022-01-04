@@ -10,9 +10,9 @@ export class UserLogin extends Component {
             email:this.email,
             password: this.password
         }
-        axios.post("auth",data)
+        axios.post("http://localhost:9060/auth",data)
         .then(res=>{
-            alert('Your Logged In')
+            //alert('Your Logged In')
             sessionStorage.setItem('token',res.data.token)
             console.log(res)
             this.props.history.push(`/`);

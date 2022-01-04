@@ -7,7 +7,7 @@ const Logout = () => { // export function from module
 
     if(session!==null){
         sessionStorage.clear();
-        alert("You have been logged Out")
+        //alert("You have been logged Out")
         this.history.push("/")
         window.location.reload()
     }

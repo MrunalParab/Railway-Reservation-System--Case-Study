@@ -127,7 +127,7 @@ class TicketBooking extends Component {
       <div class="container py-5 h-20">
         <div class="row d-flex justify-content-center align-items-center h-20">
           <div class="col-lg-8 col-xl-6">
-            <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff"}}>
+            <div class="card rounded-3"  style={{backgroundColor:"#f0f8ff",width:"600px"}}>
             <center>
               <div class="card-body p-4 p-md-5">
                 <h3 class="Login" style={{color:"#000066"}}><strong>Book Tickets</strong></h3>
@@ -165,11 +165,13 @@ class TicketBooking extends Component {
 
                     <br></br><br></br>
 
+                    <label><strong>No. of Tickets : &nbsp; </strong> </label>
                     <input type="text"
                       placeholder="No of tickets"
                       className="form-control mb-4"
                       id="tickets"
                       onChange={this.checkTickets}
+                      style={{width:"400px"}}
                     />
 
             <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"
