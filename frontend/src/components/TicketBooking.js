@@ -11,7 +11,7 @@ export const NOOFTICKETS = "NOOFTICKETS";
 class TicketBooking extends Component {
   constructor(props) {
     super(props);
-    
+    this.checktrainId = this.checktrainId.bind(this);
     this.checkSource = this.checkSource.bind(this);
     this.checkDestination = this.checkDestination.bind(this);
     this.checkTickets = this.checkTickets.bind(this);
@@ -19,8 +19,7 @@ class TicketBooking extends Component {
 
     //Equal the state to empty
     this.state = {
-    
-      
+      trainId : "",
       source: "",
       destination: "",
       nooftickets: ""
@@ -32,6 +31,13 @@ class TicketBooking extends Component {
   //display the input data value in console
 
   //store the input data into states
+  checktrainId(e){
+    var tList=document.getElementById("tList").value;
+    this.setState({
+      trainId:e.target.value
+    })
+    console.log("TRAINID:" +tList)
+  }
 
   checkSource(e) {
     var soList = document.getElementById("soList").value;
@@ -61,10 +67,30 @@ class TicketBooking extends Component {
   storeDetails(e) {
     e.preventDefault();
   
-   
+    let trainId=this.state.trainId;
     let source = this.state.source;
     let destination = this.state.destination;
     let nooftickets = this.state.nooftickets;
+
+
+    var session=sessionStorage.getItem('token')
+    if(session===null){
+      this.props.history.push('/UserLogin');
+    }
+    else
+    {
+    
+    if(trainId === "")
+    {
+      //alert("Train No. cannot  be empty")
+      this.props.history.push('/booking');
+    }
+
+    else{
+      sessionStorage.setItem(TRAINID,trainId)
+      this.props.history.push('/payment');
+    }
+  
 
     //Validating the source, If validated store the data to sessionStorage.
     if (source === "") 
@@ -118,7 +144,7 @@ class TicketBooking extends Component {
       this.props.history.push(`/payment`);
     }
     
-
+  }
   }
 
   render() {
@@ -139,9 +165,19 @@ class TicketBooking extends Component {
                     onSubmit={this.storeDetails}
                     
                   >
-                    <label><strong>Train No : &nbsp; </strong> </label>
-                    <input type="text" placeholder="Enter Train No"></input>
-                    <br></br><br></br>
+                     <label><strong>Train No : &nbsp; </strong> </label>
+                    <input type="text" id="tList" placeholder="Enter Train No" onChange={this.checktrainId}></input>
+                    <br></br><br></br> 
+                    
+                    {/* <label><strong>Train No : &nbsp; </strong> </label>
+                    <select class="source" id="soList" onChange={this.checktrainId}>
+                      <option value="" disabled selected >Choose Train</option>
+                      <option value="11"> 11 </option>
+                      <option value="12"> 12 </option>
+                      <option value="13"> 13 </option>
+                    </select>
+
+                    <br></br><br></br> */}
 
                     <label><strong>Source : &nbsp; </strong> </label>
                     <select class="source" id="soList" onChange={this.checkSource}>
@@ -171,7 +207,7 @@ class TicketBooking extends Component {
                       className="form-control mb-4"
                       id="tickets"
                       onChange={this.checkTickets}
-                      style={{width:"400px"}}
+                      style={{marginLeft:"100px",width:"300px"}}
                     />
 
             <button className="btn btn-outline-warning btn-rounded btn-block z-depth-0 my-4 waves-effect"

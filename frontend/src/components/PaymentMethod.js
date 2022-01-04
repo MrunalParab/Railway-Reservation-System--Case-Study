@@ -28,7 +28,7 @@ class PaymentMethod extends Component {
     }
     componentDidMount(){
         this.setState({
-            ...this.state,
+             ...this.state,
             trainId: sessionStorage.getItem(TRAINID)
             
         },()=>console.log(this.state.trainId)
@@ -115,8 +115,9 @@ class PaymentMethod extends Component {
         sessionStorage.setItem(TOTAL,this.state.total)
         
             return (
-               
-                <div id='wrp'>
+               <div className="card rounded-3" style={{backgroundColor:"aliceblue",marginLeft:"300px"}}>
+                   <center>
+                <div id='wrp' >
                     <div className='payment'>
                         <div className='product'>
                             <div>
@@ -146,12 +147,14 @@ class PaymentMethod extends Component {
                                     <span>No of Seats : </span>
                                     <span>{this.state.nooftickets}</span>
                                 </li>
-                                <hr/>
-                                <li>
+                                
+                                <li style={{fontSize:"28px"}}>
+                                <strong>
                                     <span>Total Amount : </span>
                                     <span>{this.state.total}</span>
+                                </strong>
                                 </li>
-                                <hr/>
+                                
                                 </strong>
                             </ul>
                             <h2>Payment Information</h2>
@@ -218,6 +221,8 @@ class PaymentMethod extends Component {
                         </div>
                     </div>
 
+                </div>
+                </center>
                 </div>
             )
             
