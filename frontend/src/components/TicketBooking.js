@@ -165,26 +165,39 @@ class TicketBooking extends Component {
                     onSubmit={this.storeDetails}
                     
                   >
-                     <label><strong>Train No : &nbsp; </strong> </label>
+                     {/* <label><strong>Train No : &nbsp; </strong> </label>
                     <input type="text" id="tList" placeholder="Enter Train No" onChange={this.checktrainId}></input>
-                    <br></br><br></br> 
+                    <br></br><br></br>  */}
                     
-                    {/* <label><strong>Train No : &nbsp; </strong> </label>
-                    <select class="source" id="soList" onChange={this.checktrainId}>
+                    <label><strong>Train No : &nbsp; </strong> </label>
+                    <select class="trainId" id="tList" onChange={this.checktrainId}>
                       <option value="" disabled selected >Choose Train</option>
-                      <option value="11"> 11 </option>
-                      <option value="12"> 12 </option>
-                      <option value="13"> 13 </option>
+                      <option value="1101"> 1101 </option>
+                      <option value="1102"> 1102 </option>
+                      <option value="1103"> 1103 </option>
+                      <option value="1104"> 1104 </option>
+                      <option value="1105"> 1105 </option>
+                      <option value="1201"> 1201 </option>
+                      <option value="1202"> 1202 </option>
+                      <option value="1203"> 1203 </option>
+                      <option value="1204"> 1204 </option>
+                      <option value="1205"> 1205 </option>
                     </select>
 
-                    <br></br><br></br> */}
+                    <br></br><br></br>
 
                     <label><strong>Source : &nbsp; </strong> </label>
                     <select class="source" id="soList" onChange={this.checkSource}>
                       <option value="" disabled selected >Choose Source</option>
-                      <option value="Mumbai"> Mumbai </option>
+                      <option value="Mumbai"> Mumbai CSMT </option>
                       <option value="Dadar"> Dadar </option>
-                      <option value="Gujrat"> Gujrat </option>
+                      <option value="Diva"> Diva </option>
+                      <option value="LT"> Lokmanya Tilak (LT)</option>
+                      <option value="Bhuj"> Bhuj </option>
+                      <option value="Amritsar"> Amritsar </option>
+                      <option value="Kolhapur"> Kolhapur </option>
+                      <option value=" Bhubhaneshwar"> Bhubhaneshwar </option>
+                      <option value="Jammu ">Jammu </option>
                     </select>
 
                     <br></br><br></br>
@@ -192,11 +205,12 @@ class TicketBooking extends Component {
                     <label> <strong>Destination : &nbsp;</strong></label>
                     <select class="destination" id="deList" onChange={this.checkDestination}>
                       <option value="" disabled selected>Choose Destination</option>
-                      <option value="Kudal"> Kudal </option>
+                      <option value="Madgaon"> Madgaon</option>
                       <option value="Sawantwadi"> Sawantwadi </option>
-                      <option value="Delhi"> Delhi </option>
-                      <option value="Mangalore"> Mangalore </option>
-                      <option value="Mumbai"> Mumbai </option>
+                      <option value="Karmali"> Karmali </option>
+                      <option value="Thiruvananthampuram"> Thiruvananthampuram</option>
+                      <option value="Mumbai"> Mumbai CSMT</option>
+                      <option value="Bandra"> Bandra Terminus</option>
                     </select>
 
                     <br></br><br></br>
