@@ -85,7 +85,7 @@ export default class SignUp extends Component {
             .then(response=> response.json())
             .then(response=>{
                 alert("You have been Registered Successfully")
-                this.props.history.push(`/Login`);
+                this.props.history.push(`/UserLogin`);
             })
             
             .catch(err=>{

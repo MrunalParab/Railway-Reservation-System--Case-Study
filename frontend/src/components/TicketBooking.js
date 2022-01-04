@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 
 //export the variable to access from other components
-
+export const TRAINID = "TRAINID";
 export const SOURCE = "SOURCE";
 export const DESTINATION = "DESTINATION";
 export const NOOFTICKETS = "NOOFTICKETS";
@@ -11,7 +11,7 @@ export const NOOFTICKETS = "NOOFTICKETS";
 class TicketBooking extends Component {
   constructor(props) {
     super(props);
-
+    
     this.checkSource = this.checkSource.bind(this);
     this.checkDestination = this.checkDestination.bind(this);
     this.checkTickets = this.checkTickets.bind(this);

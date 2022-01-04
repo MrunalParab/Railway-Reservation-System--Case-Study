@@ -30,7 +30,7 @@ public class TrainSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
        auth.inMemoryAuthentication().withUser("Admin").password(this.passwordEncoder().encode("admin")).roles("ADMIN");
-        //auth.inMemoryAuthentication().withUser("Siddu").password(this.passwordEncoder().encode("sid19")).roles("ADMIN");
+        
     }
     @Bean
     public PasswordEncoder passwordEncoder(){

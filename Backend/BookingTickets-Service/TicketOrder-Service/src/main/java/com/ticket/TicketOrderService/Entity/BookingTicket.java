@@ -13,22 +13,28 @@ public class BookingTicket {
 	@Id
 	private String id;
 	private String trainId;
-	private String seats;
-	private String startStation;
-	private String endStation;
+	private String nooftickets;
+	private String source;
+	private String destination;
 	List<Train> trains=new ArrayList<>();
+	public BookingTicket(String id, String trainId, String nooftickets, String source, String destination) {
+		//super();
+		this.id = id;
+		this.trainId = trainId;
+		this.nooftickets = nooftickets;
+		this.source = source;
+		this.destination = destination;
+	}
+
 	public BookingTicket() {
 		
 	}
 
-	public List<Train> getTrains() {
-		return trains;
-	}
-
-	public void setTrains(List<Train> trains) {
-		this.trains = trains;
-	}
-
+	
+	  public List<Train> getTrains() { return trains; }
+	  
+	  public void setTrains(List<Train> trains) { this.trains = trains; }
+	 
 	public String getTrainId() {
 		return trainId;
 	}
@@ -36,22 +42,16 @@ public class BookingTicket {
 	public void setTrainId(String trainId) {
 		this.trainId = trainId;
 	}
-
-	public BookingTicket(String id, String seats, String trainId, String startStation, String endStation, List<Train> trains) {
-		this.id = id;
-		this.seats = seats;
-		this.trainId=trainId;
-		this.startStation = startStation;
-		this.endStation = endStation;
-		this.trains=trains;
-	}
-	public BookingTicket(String id, String seats, String trainId, String startStation, String endStation) {
-		this.id = id;
-		this.seats = seats;
-		this.trainId=trainId;
-		this.startStation = startStation;
-		this.endStation = endStation;
-	}
+	
+	  public BookingTicket(String id, String nooftickets, String trainId, String source, String destination, List<Train> trains) { 
+		  this.id = id;
+		  this.nooftickets = nooftickets; 
+		  this.trainId=trainId; 
+		  this.source = source;
+		  this.destination = destination; 
+		  this.trains=trains; 
+	  }
+	 
 
 
 
@@ -63,28 +63,28 @@ public class BookingTicket {
 		this.id = id;
 	}
 
-	public String getSeats() {
-		return seats;
+	public String getnooftickets() {
+		return nooftickets;
 	}
 
-	public void setSeats(String seats) {
-		this.seats = seats;
+	public void setnooftickets(String nooftickets) {
+		this.nooftickets = nooftickets;
 	}
 
-	public String getStartStation() {
-		return startStation;
+	public String getsource() {
+		return source;
 	}
 
-	public void setStartStation(String startStation) {
-		this.startStation = startStation;
+	public void setsource(String source) {
+		this.source = source;
 	}
 
-	public String getEndStation() {
-		return endStation;
+	public String getdestination() {
+		return destination;
 	}
 
-	public void setEndStation(String endStation) {
-		this.endStation = endStation;
+	public void setdestination(String destination) {
+		this.destination = destination;
 	}
 
 

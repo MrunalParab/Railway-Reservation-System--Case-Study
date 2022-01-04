@@ -27,6 +27,7 @@ import axios from 'axios';
       button=(
       <ul>
       <li><a href='/'>Home</a></li>
+      <li><a href='/aboutus'>About Us</a></li>
       <li><a href='/trainlist'>Train List</a></li>
       <li><a href='/booking'>Book Ticket</a></li>
       <li><a href='/'onClick={Logout}>Logout </a></li>
@@ -38,6 +39,7 @@ import axios from 'axios';
       button= (
         <ul>
                 <li><a href='/'>Home</a></li>
+                <li><a href='/aboutus'>About Us</a></li>
                 <li><a href='/trainlist'>Train List</a></li>
                 <li><a href='/adminSignIn'>Admin</a></li>
                 <li><a href='/UserLogin'>Login</a></li>
